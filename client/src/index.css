@@ -1,0 +1,203 @@
+:root {
+    --very-light: #FFF5E4;
+    --light: #FFC4C4;
+    --dark: #850E35;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fira Code', 'sans-serif';
+}
+
+body {
+    background-color: var(--dark);
+    color: white;
+}
+
+.App {
+    width: 80%;
+    padding: 32px;
+}
+
+h1 {
+    margin-bottom: 32px;
+}
+
+h4 {
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    color: var(--light)
+}
+
+.todo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: var(--light);
+    margin-bottom: 16px;
+    padding: 16px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.todo .text {
+    color: var(--dark);
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.todo:hover {
+    opacity: 0.8;
+}
+
+.todo .checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+    border-radius: 50%;
+    background-color: var(--very-light);
+    transition: 0.4s;
+}
+
+.todo.is_complete .checkbox {
+    background-color: var(--dark)
+}
+
+.todo.is_complete .text {
+    text-decoration: line-through;
+}
+
+.todo .buttons {
+    width: 20%;
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.todo .update,
+.todo .delete {
+    width: 24px;
+    height: 24px;
+    color: var(--very-light);
+    background-color: var(--dark);
+    border-radius: 50%;
+    padding: 16px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.show_pop_up {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+    width: 32px;
+    height: 32px;
+    font-weight: bold;
+    font-size: 24px;
+    background-color: var(--very-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--dark)
+}
+
+.pop_up_box {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    max-width: 400px;
+    width: 100%;
+    background-color: var(--light);
+    padding: 32px;
+    border-radius: 16px;
+}
+
+.pop_up_box .close_pop_up {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    background-color: var(--dark);
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    font-size: 8px;
+    font-weight: bold;
+}
+
+.pop_up_box input {
+    margin: 16px 0px;
+    width: 100%;
+    border: none;
+    outline: none;
+    appearance: none;
+    border-radius: 16px;
+    color: var(--dark);
+    font-weight: bold;
+    padding: 16px;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+}
+
+.pop_up_box input:focus {
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.4);
+}
+
+.pop_up_box .create_button {
+    background-color: var(--dark);
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-weight: bold;
+    margin-top: 16px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+#lighten_bg {
+    opacity: 0.2;
+}
+
+@media (max-width: 420px) {
+    .App {
+        width: 100%;
+    }
+
+    .todo .checkbox {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+    }
+
+    .todo .text {
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .todo .update,
+    .todo .delete {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .pop_up_box {
+        width: 90%;
+    }
+}
